@@ -1,4 +1,4 @@
-const {validate} = require('uuid');
+const { validate } = require('uuid');
 const CustomError = require('../utils/custom_error');
 
 function validatePerson(req, res) {
@@ -13,9 +13,9 @@ function validatePerson(req, res) {
     req.id = id;
     return;
   } else if (params.length === 3 && !validate(id)) {
-    throw new CustomError({code: 400, text: 'Invalid id'});
+    throw new CustomError({ code: 400, text: 'Invalid id' });
   }
 
-  throw new CustomError({code: 404, text: 'Not Found'});
+  throw new CustomError({ code: 404, text: 'Not Found' });
 }
 module.exports = validatePerson;

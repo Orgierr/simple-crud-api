@@ -1,6 +1,7 @@
 const persons = require('../db/persons');
 const validatePerson = require('../middleware/validate_person');
 const validateBody = require('../middleware/validate_body');
+const methods = require('../middleware/methods');
 
 async function app(req, res) {
   try {
@@ -9,7 +10,8 @@ async function app(req, res) {
 
     validatePerson(req, res)
     await validateBody(req, res)
-    res.end()
+    methods(req, res)
+
 
   } catch (error) {
     res.statusCode = error.message.code || 500;
