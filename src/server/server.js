@@ -1,8 +1,7 @@
 const http = require('http');
-require('dotenv').config()
+const app = require('../app/app');
 const PORT = process.env.PORT || 8080;
-const server = new http.Server(function (req, res) {
-
-});
+require('dotenv').config()
+const server = new http.Server(app);
 server.listen(PORT, 'localhost');
 
