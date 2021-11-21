@@ -1,11 +1,15 @@
 const persons = require('../db/persons');
+const validatePerson = require('../middleware/validate_person');
+const validateBody = require('../middleware/validate_body');
 
 async function app(req, res) {
   try {
     req.persons = persons;
     res.setHeader('Content-Type', 'application/json');
 
-    validateUrl(req, res)
+    validatePerson(req, res)
+    await validateBody(req, res)
+    res.end()
 
   } catch (error) {
     res.statusCode = error.message.code || 500;
