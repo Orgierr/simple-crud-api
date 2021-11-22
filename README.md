@@ -4,13 +4,26 @@
 
 ```
 # Clone repo
+
+```
+
 git clone https://github.com/Orgierr/simple-crud-api.git
 
+```
+
 # Go to app folder
+```
+
 cd simple-crud-api
 
+```
+
 # Install dependencies
+```
+
 npm i
+
+```
 
 ```
 
@@ -19,19 +32,38 @@ npm i
 ```
 
 # Run in develpment
-npm start:dev
-
-# Build and run in production
-npm start:prod
-
-# Run in production
-npm start
-
-# Test api
-npm test
 ```
 
-## Start app
+npm start:dev
+
+```
+
+# Build and run in production
+```
+
+npm start:prod
+
+```
+
+# Run in production
+```
+
+npm start
+
+```
+
+# Test api
+```
+
+npm test
+
+```
+
+```
+
+## Usage
+
+For PUT and POST reqests required json body with following properties:name(string),age(number), hobbies (array of strings or empty array)
 
 ```
 # Get all persons
