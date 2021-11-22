@@ -1,4 +1,5 @@
 const { v4 } = require('uuid');
+const CustomError = require('../utils/custom_error');
 
 function methods(req, res) {
   try {
@@ -19,25 +20,32 @@ function methods(req, res) {
 
         break;
       case 'PUT':
-        req.body.id = req.id;
-        req.persons[req.persons.findIndex((p) => p.id === req.id)] = req.body;
-        res.end(JSON.stringify(req.body));
+        if (req.id) {
+          req.body.id = req.id;
+          req.persons[req.persons.findIndex((p) => p.id === req.id)] = req.body;
+          res.end(JSON.stringify(req.body));
+          return;
+        }
+        throw new CustomError({ code: 400, text: 'Invalid id' });
 
-        break;
       case 'DELETE':
-        req.persons.splice(
-          req.persons.findIndex((p) => p.id === req.id),
-          1
-        );
-        res.statusCode = 204;
-        res.end('Sucsses delete');
+        if (req.id) {
+          req.persons.splice(
+            req.persons.findIndex((p) => p.id === req.id),
+            1
+          );
+          res.statusCode = 204;
+          res.end();
+          return;
+        }
 
-        break;
+        throw new CustomError({ code: 400, text: 'Invalid id' });
 
       default:
+        throw new CustomError({ code: 500, text: 'Internal Server Error' });
     }
   } catch (error) {
-    throw new CustomError({ code: 500, text: 'Internal Server Error' });
+    throw error;
   }
 }
 module.exports = methods;
