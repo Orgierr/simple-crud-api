@@ -1,8 +1,8 @@
 {
-  "name": "my-webpack-project",
+  "name": "simple-crud-api",
   "version": "1.0.0",
-  "description": "My webpack project",
-  "main": "index.js",
+  "description": "Simple-crud-api",
+  "main": "./src/server/server.js",
   "scripts": {
     "test": "jest",
     "start": "node dist/server.js",
