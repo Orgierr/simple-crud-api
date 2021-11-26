@@ -18,6 +18,7 @@ function validateBody(req, res) {
                 bodyObj.name.length &&
                 typeof bodyObj.age === 'number' &&
                 !isNaN(bodyObj.age) &&
+                Array.isArray(bodyObj.hobbies) &&
                 bodyObj.hobbies.every((i) => typeof i === 'string' && i.length)
               ) {
                 req.body = bodyObj;
