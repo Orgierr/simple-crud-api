@@ -25,13 +25,13 @@ npm i
 Run in develpment
 
 ```
-npm start:dev
+npm run start:dev
 ```
 
 Build and run in production
 
 ```
-npm start:prod
+npm run start:prod
 ```
 
 Run in production
